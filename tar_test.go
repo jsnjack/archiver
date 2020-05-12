@@ -65,3 +65,22 @@ func TestDefaultTar_Extract_HardlinkSuccess(t *testing.T) {
 	filebInfo := requireRegularFile(t, path.Join(destination, "dir-2", "file-b"))
 	assertSameFile(t, fileaInfo, filebInfo)
 }
+
+func TestDefaultTar_Walk_path(t *testing.T) {
+	err := archiver.Walk("testdata/gnu-hardlinks.tar", func(f archiver.File) error {
+		switch f.Name() {
+		case "dir-1":
+			if f.Path != "dir-1/" {
+				t.Errorf("Expected path dir-1/, got %s", f.Path)
+			}
+		case "file-a":
+			if f.Path != "dir-1/dir-2/file-a" {
+				t.Errorf("Expected path dir-1/dir-2/file-a, got %s", f.Path)
+			}
+		}
+		return nil
+	})
+	if err != nil {
+		t.Error(err)
+	}
+}
