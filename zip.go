@@ -479,6 +479,7 @@ func (z *Zip) Read() (File, error) {
 	z.ridx++
 
 	file := File{
+		Path:     zf.Name,
 		FileInfo: zf.FileInfo(),
 		Header:   zf.FileHeader,
 	}

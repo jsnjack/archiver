@@ -253,6 +253,7 @@ func (r *Rar) Read() (File, error) {
 	}
 
 	file := File{
+		Path:       hdr.Name,
 		FileInfo:   rarFileInfo{hdr},
 		Header:     hdr,
 		ReadCloser: ReadFakeCloser{r.rr},

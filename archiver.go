@@ -116,6 +116,9 @@ type File struct {
 
 	// Allow the file contents to be read (and closed)
 	io.ReadCloser
+
+	// Path to the file inside archive
+	Path string
 }
 
 // FileInfo is an os.FileInfo but optionally with

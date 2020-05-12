@@ -424,6 +424,7 @@ func (t *Tar) Read() (File, error) {
 	}
 
 	file := File{
+		Path:       hdr.Name,
 		FileInfo:   hdr.FileInfo(),
 		Header:     hdr,
 		ReadCloser: ReadFakeCloser{t.tr},
