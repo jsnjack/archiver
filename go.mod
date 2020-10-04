@@ -10,6 +10,7 @@ require (
 	github.com/golangci/golangci-lint v1.31.0
 	github.com/klauspost/compress v1.10.10
 	github.com/klauspost/pgzip v1.2.4
+	github.com/mholt/archiver/v3 v3.3.2
 	github.com/nwaples/rardecode v1.1.0
 	github.com/pierrec/lz4/v3 v3.3.2
 	github.com/ulikunitz/xz v0.5.7
